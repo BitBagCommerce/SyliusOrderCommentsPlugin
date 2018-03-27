@@ -29,6 +29,9 @@ final class Comment implements ResourceInterface, ContainsRecordedMessages
     /** @var string */
     private $message;
 
+    /** @var bool */
+    private $read = false;
+
     /** @var \DateTimeInterface */
     private $createdAt;
 
@@ -70,6 +73,22 @@ final class Comment implements ResourceInterface, ContainsRecordedMessages
     public function getId(): UuidInterface
     {
         return $this->id;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isRead(): bool
+    {
+        return $this->read;
+    }
+
+    /**
+     * @param bool $read
+     */
+    public function setRead(bool $read): void
+    {
+        $this->read = $read;
     }
 
     public function order(): OrderInterface
