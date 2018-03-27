@@ -30,7 +30,10 @@ final class Comment implements ResourceInterface, ContainsRecordedMessages
     private $message;
 
     /** @var bool */
-    private $read = false;
+    private $readByUser = false;
+
+    /** @var bool */
+    private $readByAdmin = false;
 
     /** @var \DateTimeInterface */
     private $createdAt;
@@ -75,22 +78,6 @@ final class Comment implements ResourceInterface, ContainsRecordedMessages
         return $this->id;
     }
 
-    /**
-     * @return bool
-     */
-    public function isRead(): bool
-    {
-        return $this->read;
-    }
-
-    /**
-     * @param bool $read
-     */
-    public function setRead(bool $read): void
-    {
-        $this->read = $read;
-    }
-
     public function order(): OrderInterface
     {
         return $this->order;
@@ -114,5 +101,36 @@ final class Comment implements ResourceInterface, ContainsRecordedMessages
     public function attachedFile(): ?AttachedFile
     {
         return $this->attachedFile;
+    }
+    /**
+     * @return bool
+     */
+    public function isReadByUser(): bool
+    {
+        return $this->readByUser;
+    }
+
+    /**
+     * @param bool $readByUser
+     */
+    public function setReadByUser(bool $readByUser): void
+    {
+        $this->readByUser = $readByUser;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isReadByAdmin(): bool
+    {
+        return $this->readByAdmin;
+    }
+
+    /**
+     * @param bool $readByAdmin
+     */
+    public function setReadByAdmin(bool $readByAdmin): void
+    {
+        $this->readByAdmin = $readByAdmin;
     }
 }

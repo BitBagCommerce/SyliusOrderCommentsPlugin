@@ -18,6 +18,7 @@
 
         <field name="message" column="message" type="string" />
         <field name="createdAt" column="createdAt" type="datetime" />
-        <field name="read" column="readed" type="boolean" />
+        <field name="readByUser" column="readByUser" type="boolean" />
+        <field name="readByAdmin" column="readByAdmin" type="boolean" />
     </entity>
 </doctrine-mapping>
